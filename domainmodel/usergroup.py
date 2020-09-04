@@ -49,11 +49,13 @@ class UserGroup:
 
     def add_member(self, user: User):
         if isinstance(user, User) and user not in self.__members:
-            self.__members.append(user)
+            if self.__owner != user:
+                self.__members.append(user)
 
     def remove_member(self, user: User):
         if isinstance(user, User) and user in self.__members:
-            self.__members.remove(user)
+            if self.__owner != user:
+                self.__members.remove(user)
 
 
 

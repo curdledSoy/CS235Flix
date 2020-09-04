@@ -56,9 +56,8 @@ class Movie:
 
     @director.setter
     def director(self, new_director):
-        if self.__director is None:
-            if isinstance(new_director, Director):
-                self.__director = new_director
+        if isinstance(new_director, Director):
+            self.__director = new_director
 
     @property
     def actors(self) -> list:
@@ -138,7 +137,7 @@ class Movie:
 
     @metascore.setter
     def metascore(self, new_metascore: int):
-        if isinstance(new_metascore, int) and 0 <= new_metascore <= 100:
+        if isinstance(new_metascore, int) and 0 >= new_metascore <= 100:
             self.__metascore = new_metascore
 
     def __repr__(self):
@@ -151,7 +150,7 @@ class Movie:
         return (self.__title, self.__release_year) < (other.title, other.release_year)
 
     def __hash__(self):
-        return hash((self.__title, self.__release_year))
+        return hash(self.__title + " " + str(self.__release_year))
 
     def add_actor(self, actor):
         if isinstance(actor, Actor):

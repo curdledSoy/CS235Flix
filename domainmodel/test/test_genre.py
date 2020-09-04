@@ -1,6 +1,7 @@
 import pytest
 from domainmodel.genre import Genre
 
+
 class TestGenreMethods:
     @pytest.fixture
     def genre(self):
@@ -8,7 +9,7 @@ class TestGenreMethods:
 
     def test_genre_name(self, genre):
         assert genre.genre_name == "Horror"
-        assert Genre("").genre_name == None
+        assert Genre("").genre_name is None
 
     def test_repr(self, genre):
         assert repr(genre) == "<Genre Horror>"

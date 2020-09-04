@@ -1,4 +1,3 @@
-
 import pytest
 from domainmodel.review import Review
 from domainmodel.movie import Movie
@@ -23,12 +22,11 @@ class TestReviewMethods:
 
     def test_review_text(self, review):
         assert review.review_text == 'This Movie was really good'
-        assert Review(Movie('Moana', 2016),10, 9).review_text is None
+        assert Review(Movie('Moana', 2016), 10, 9).review_text is None
 
     def test_rating(self, review):
         assert review.rating == 10
-        assert Review(Movie('Moana', 2016),'This Movie was really good', 'a').rating is None
+        assert Review(Movie('Moana', 2016), 'This Movie was really good', 'a').rating is None
 
     def test_timestamp(self, review):
         assert review.timestamp.date() == datetime.today().date()
-

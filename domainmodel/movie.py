@@ -109,7 +109,7 @@ class Movie:
 
     @rating.setter
     def rating(self, new_rating: int):
-        if isinstance(new_rating, int) and 0 <= new_rating <= 10:
+        if isinstance(new_rating, int) and 10 >= new_rating >= 0:
             self.__rating = new_rating
 
     @property
